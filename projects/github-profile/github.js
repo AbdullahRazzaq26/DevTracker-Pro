@@ -3,11 +3,6 @@ let githubProfile = document.querySelector('#githubProfile');
 let searchBtn = document.querySelector('#searchGitHub');
 let input = document.querySelector("#githubUsername");
 
-// ⛔️ WARNING: Don't expose this token publicly in production!
-const token = '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';
-const headers = {
-    Authorization: `Bearer ${token}`
-};
 
 searchBtn.addEventListener('click', () => {
     getProfile();
@@ -38,7 +33,7 @@ async function getProfile() {
 
         for (let repo of reposData) {
             try {
-                let langRes = await fetch(repo.languages_url, { headers });
+                let langRes = await fetch(repo.languages_url);
                 let langData = await langRes.json();
 
                 for (let lang in langData) {
