@@ -1,0 +1,196 @@
+.calendar-container {
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    color: #f0f4ff;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.calendar-container h2 {
+    font-family: 'Lemon Milk', sans-serif;
+    font-size: 1.5rem;
+    color: #1dd1a1;
+    text-align: center;
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    box-shadow: none;
+    position: relative;
+    top: -25px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calendar-header h3 {
+    font-family: 'Lemon Milk', sans-serif;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.calendar-header button {
+    background: #506EEC;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.calendar-header button:hover {
+    background: #384bcc;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: 600;
+    color: #c2c2c2;
+    font-size: 0.95rem;
+    margin-top: 8px;
+}
+
+.calendar-dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    margin-top: 6px;
+}
+
+.calendar-dates div {
+    padding: 12px 0;
+    font-size: 0.95rem;
+    border-radius: 10px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    cursor: default;
+    user-select: none;
+}
+
+.calendar-dates div:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    transform: scale(1.05);
+}
+
+.calendar-dates .today {
+    background-color: #1dd1a1;
+    color: #000;
+    font-weight: bold;
+}
+.calendar-dates div {
+    width: 40px;
+    height: 40px;
+    margin: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: 0.3s ease;
+    margin-left: 20px;
+}
+
+.calendar-dates div.active {
+    background-color: #506EEC;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 0 8px rgba(80, 110, 236, 0.6);
+}
+
+.calendar-dates div.inactive {
+    opacity: 0.3;
+}
+
+
+
+.note-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.45);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.note-content {
+  background: rgba(30, 30, 40, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  border-radius: 16px;
+  padding: 24px;
+  width: 350px;
+  max-width: 90%;
+  box-shadow: 0 0 20px rgba(130, 160, 255, 0.15);
+  color: #f0f4ff;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+.note-content h3 {
+  margin-bottom: 10px;
+  font-family: 'Lemon Milk', sans-serif;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.note-content textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  resize: none;
+  outline: none;
+  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+.popup-buttons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.popup-buttons button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#saveNote {
+  background-color: #1dd1a1;
+  color: #000;
+}
+
+#saveNote:hover {
+  background-color: #1aa78d;
+}
+
+#closeNote {
+  background-color: #ff6b6b;
+  color: white;
+}
+
+#closeNote:hover {
+  background-color: #e64c4c;
+}

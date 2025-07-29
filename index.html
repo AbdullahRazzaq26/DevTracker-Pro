@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevTracker Pro</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="code (1).png" type="image/x-icon">
+
+    <!-- Project CSS -->
+    <link rel="stylesheet" href="projects/todo-app/todo.css" />
+    <link rel="stylesheet" href="projects/weather-widget/weather.css" />
+    <link rel="stylesheet" href="projects/notes-snippets/notes.css" />
+    <link rel="stylesheet" href="projects/github-profile/github.css" />
+    <link rel="stylesheet" href="projects/pomodoro-timer/pomodoro.css" />
+    <link rel="stylesheet" href="projects/theme-switcher/theme.css" />
+    <link rel="stylesheet" href="projects/daily-quote/quote.css" />
+    <link rel="stylesheet" href="projects/calendar-countdown/calendar.css" />
+    <link rel="stylesheet" href="projects/devtools-shortcuts/devtools.css" />
+    <link rel="stylesheet" href="projects/cheat-sheet/cheat.css" />
+</head>
+
+<body>
+
+    <h1 class="title">DevTracker Pro</h1>
+    <p id="daily-quote">"Loading quote..."</p>
+
+    <main>
+        <div class="row row-top">
+            <section class="tool weather-widget">
+                <div class="weather-container">
+                    <h2>🌤 Weather</h2>
+                    <div class="weather-box">
+                        <div class="weather-input-section">
+                            <input type="text" id="cityInput" placeholder="Enter city..." />
+                            <button id="getWeather">Check</button>
+                        </div>
+                        <div id="weatherResult"></div>
+                        <div id="forecastContainer" class="forecast-grid"></div>
+                    </div>
+                </div>
+            </section>
+            <section class="tool pomodoro-widget">
+                <div class="pomodoro-container">
+                    <h2>⏱ Pomodoro Timer</h2>
+                    <div class="timer-display" id="timer">25:00</div>
+
+                    <div class="timer-buttons">
+                        <button id="start">Start</button>
+                        <button id="pause">Pause</button>
+                        <button id="reset">Reset</button>
+                    </div>
+
+                    <div class="session-type">
+                        <button data-mode="pomodoro" class="active">Pomodoro</button>
+                        <button data-mode="short">Short Break</button>
+                        <button data-mode="long">Long Break</button>
+                    </div>
+                </div>
+            </section>
+            <section class="tool calendar-widget">
+                <div class="calendar-container">
+                    <h2>📅 Calendar</h2>
+                    <div class="calendar-header">
+                        <button id="prevMonth">‹</button>
+                        <h3 id="monthYear"></h3>
+                        <button id="nextMonth">›</button>
+                    </div>
+                    <div class="calendar-days">
+                        <div>Sun</div>
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                    </div>
+                    <div class="calendar-dates" id="calendarDates">
+                        <!-- Days will be populated here by JS -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="row row-center">
+            <section class="tool github-widget">
+                <div class="github-container">
+                    <h2>👨‍💻 GITHUB PROFILE</h2>
+
+                    <div class="github-search">
+                        <input type="text" id="githubUsername" placeholder="Enter GitHub username..." />
+                        <button id="searchGitHub">Search</button>
+                    </div>
+
+                    <div id="githubProfile" class="github-profile">
+                    </div>
+                </div>
+            </section>
+            <section class="tool todo-widget">
+                <div class="tool-card todo-card">
+                    <h2>✅ To-Do List</h2>
+                    <div class="todo-input-area">
+                        <input type="text" id="todoInput" placeholder="✍️ Add a new task..." />
+                        <button id="addTodo">➕</button>
+                    </div>
+                    <ul id="todoList" class="todo-list">
+                    </ul>
+                    <button id="clearAll" class="clear-btn">🗑️ Clear All</button>
+                </div>
+            </section>
+        </div>
+
+        <div class="row row-bottom">
+            <section class="tool notes-widget">
+                <div id="notesSection">
+                    <h2>📝 Quick Notes</h2>
+                    <div class="note-input">
+                        <textarea id="noteInput" placeholder="Write something..."></textarea>
+                        <button id="saveNote">Save Note</button>
+                    </div>
+                    <div id="notesContainer"></div>
+                </div>
+            </section>
+            <section class="tool devTools-widget">
+                <div id="devToolsShortcuts">
+                    <h2>🛠️ DevTools Shortcuts</h2>
+                    <div class="shortcut-container">
+                    </div>
+                </div>
+            </section>
+            <section class="tool cheatSheet-widget">
+                <div id="cheatSheetSection">
+                    <h2>📌 Dev Cheat Sheet</h2>
+
+                    <div class="cheat-dropdown">
+                        <label for="cheatSelector">Choose Category:</label>
+                        <select id="cheatSelector">
+                            <option value="html">HTML</option>
+                            <option value="css">CSS</option>
+                            <option value="js">JavaScript</option>
+                            <option value="git">Git</option>
+                            <option value="regex">Regex</option>
+                            <option value="terminal">Terminal</option>
+                            <option value="vscode">VS Code</option>
+                            <option value="markdown">Markdown</option>
+                            <option value="devtools">DevTools</option>
+                            <option value="general">General Shortcuts</option>
+                        </select>
+                    </div>
+
+                    <div class="cheat-output" id="cheatOutput"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+
+
+
+
+
+
+    <div class="note-popup" id="notePopup">
+        <div class="note-content">
+            <h3>Add Note for <span id="selectedDate"></span></h3>
+            <textarea id="noteText" rows="5" placeholder="Write your note here..."></textarea>
+            <div class="popup-buttons">
+                <button id="saveNote">Save</button>
+                <button id="closeNote">Close</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="projects/github-profile/github.js"></script>
+    <script src="projects/calendar-countdown/calendar.js"></script>
+    <script src="projects/daily-quote/quote.js"></script>
+    <script src="projects/todo-app/todo.js"></script>
+    <script src="projects/weather-widget/weather.js"></script>
+    <script src="projects/notes-snippets/notes.js"></script>
+    <script src="projects/pomodoro-timer/pomodoro.js"></script>
+    <script src="projects/theme-switcher/theme.js"></script>
+    <script src="projects/devtools-shortcuts/devtools.js"></script>
+    <script src="projects/cheat-sheet/cheat.js"></script>
+</body>
+
+</html>

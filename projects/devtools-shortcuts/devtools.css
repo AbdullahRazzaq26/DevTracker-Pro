@@ -1,0 +1,57 @@
+#devToolsShortcuts {
+    padding: 24px;
+    border-radius: 16px;
+    margin-top: 24px;
+    backdrop-filter: blur(14px);
+    color: #f0f0f0;
+}
+
+#devToolsShortcuts h2 {
+    font-family: 'Lemon Milk', sans-serif;
+    font-size: 1.5rem;
+    color: #1dd1a1;
+    text-align: center;
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    box-shadow: none;
+    position: relative;
+    top: -35px;
+}
+
+.shortcut-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.shortcut-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid #506EEC;
+    padding: 12px 20px;
+    border-radius: 12px;
+    transition: 0.3s ease;
+}
+
+.shortcut-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    transform: scale(1.01);
+    box-shadow: 0 6px 16px rgba(80, 110, 236, 0.2);
+}
+
+.shortcut-key {
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    color: #7d5fff;
+    font-size: 1rem;
+}
+
+.shortcut-desc {
+    font-size: 0.95rem;
+    color: #eee;
+    font-family: 'Montserrat', sans-serif;
+    text-align: right;
+}
