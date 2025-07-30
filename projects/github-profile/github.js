@@ -14,11 +14,11 @@ async function getProfile() {
         localStorage.setItem("lastGitHubUser", username);
 
         // Fetch user info
-        let userResponse = await fetch(`${baseURL}${username}`, { headers });
+        let userResponse = await fetch(`${baseURL}${username}`);
         let userData = await userResponse.json();
 
         // Fetch repositories
-        let reposResponse = await fetch(`${baseURL}${username}/repos?sort=updated&per_page=100`, { headers });
+        let reposResponse = await fetch(`${baseURL}${username}/repos?sort=updated&per_page=100`);
         let reposData = await reposResponse.json();
 
         let totalStars = reposData.reduce((sum, repo) => sum + repo.stargazers_count, 0);
