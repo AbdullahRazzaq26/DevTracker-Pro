@@ -22,10 +22,6 @@
 ✅ Calendar & Countdown Timer  
 ✅ JSON Formatter & Validator 🆕  
 ✅ API Tester (Mini Postman) 🆕  
-✅ JWT Decoder (Coming Soon)  
-✅ Regex Tester (Coming Soon)  
-✅ Fake Terminal UI (Coming Soon)  
-✅ Light/Dark Mode Switcher (Coming Soon)
 
 ---
 
