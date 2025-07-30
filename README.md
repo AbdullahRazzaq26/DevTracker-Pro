@@ -13,37 +13,65 @@
 
 ## 🎯 Features
 
-✅ GitHub Profile Viewer  
+✅ GitHub Profile Viewer (Languages, Stars, Repo Stats)  
 ✅ To-Do List with Local Storage  
-✅ Weather Forecast with 5-Day Outlook  
-✅ Pomodoro Timer  
-✅ Daily Quote  
+✅ Weather Forecast with 5-Day Outlook + Autocomplete  
+✅ Pomodoro Timer (Simple, Focus Mode Timer)  
+✅ Daily Quote (Appears below title on load)  
 ✅ Notes & Code Snippets  
-✅ Calendar & Countdown  
-✅ Light/Dark Mode (Coming Soon)  
-✅ JSON Validator, JWT Decoder, API Tester (Coming Soon)
+✅ Calendar & Countdown Timer  
+✅ JSON Formatter & Validator 🆕  
+✅ API Tester (Mini Postman) 🆕  
+✅ JWT Decoder (Coming Soon)  
+✅ Regex Tester (Coming Soon)  
+✅ Fake Terminal UI (Coming Soon)  
+✅ Light/Dark Mode Switcher (Coming Soon)
 
 ---
 
 ## 🧑‍💻 Tech Stack
 
 - **HTML5**  
-- **CSS3** (Dark theme, frosted glass, gradients, neon highlights)  
-- **JavaScript (Vanilla)**  
-- **LocalStorage**  
-- **Weather API + GitHub API**
+- **CSS3** (Dark theme, frosted glass, gradients, neon highlights, blur, rounded UI)  
+- **Vanilla JavaScript (ES6+)**  
+- **Fira Code + Lemon Milk Fonts**  
+- **LocalStorage for state persistence**  
+- **WeatherAPI + GitHub API Integration**
 
 ---
 
-## 📸 Preview
+## 📦 Tools Inside
 
-![DevTracker Preview](preview-image.png) <!-- Replace with actual screenshot -->
+| Tool                      | Description                                      |
+|---------------------------|--------------------------------------------------|
+| ✅ GitHub Viewer          | Fetches user stats, languages, stars & repos     |
+| ✅ To-Do List             | Saves tasks locally with add/edit/delete         |
+| ✅ Weather Widget         | 5-Day Forecast + Icons & Dynamic City Suggestions|
+| ✅ Pomodoro Timer         | 25-5 focus timer with alert                      |
+| ✅ Notes & Snippets       | Save dev notes or code snippets quickly          |
+| ✅ JSON Formatter 🆕       | Beautify, Minify, Copy or Clear your JSON        |
+| ✅ API Tester 🆕           | Like Postman: choose method, set URL, view response |
+| ✅ Calendar/Countdown     | Live calendar + countdown to future date         |
 
 ---
+
+## 🎨 UI & Design
+
+- Elegant glassmorphism (backdrop-filter, blur)
+- Accent colors: `#76ABAE`, `#506EEC`, `#7d5fff`, `#1dd1a1`
+- Fonts: `Fira Code` (code), `Lemon Milk` (headings)
+- Dark theme only (for now)
+- Responsive layout, minimal spacing, consistent structure
+- Organized in 3 sections: left (Weather, Timer, Calendar), middle (GitHub & To-Do), right (Snippets, JSON, API Tester)
+
+---
+
 
 ## 🔧 Installation
 
 ```bash
 git clone https://github.com/AbdullahRazzaq26/DevTracker-Pro.git
 cd DevTracker-Pro
-open index.html or use Live Server
+# Open in browser
+open index.html
+# or use VS Code Live Server

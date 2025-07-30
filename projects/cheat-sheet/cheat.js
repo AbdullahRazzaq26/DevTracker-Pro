@@ -1,5 +1,7 @@
-const cheatData = {
-  html: `
+document.addEventListener("DOMContentLoaded", () => {
+  
+  const cheatData = {
+    html: `
 📄 HTML Boilerplate
 ----------------------------
 <!DOCTYPE html>
@@ -17,7 +19,7 @@ const cheatData = {
 🔹 Form: <form>, <input>, <label>, <button>, <select>
 `,
 
-  css: `
+    css: `
 🎨 CSS Essentials
 ----------------------------
 🔹 Flexbox: display: flex; justify-content: center; align-items: center;
@@ -27,7 +29,7 @@ const cheatData = {
 🔹 Animation: @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
 `,
 
-  js: `
+    js: `
 🧠 JavaScript Basics
 ----------------------------
 🔹 Arrays: const arr = [1, 2, 3];
@@ -37,7 +39,7 @@ const cheatData = {
 🔹 Loops: for (let i = 0; i < 5; i++) { ... }
 `,
 
-  git: `
+    git: `
 🧪 Git Commands
 ----------------------------
 git init                   - initialize repo
@@ -48,7 +50,7 @@ git pull origin main       - pull latest code
 git checkout -b branch     - create branch
 `,
 
-  regex: `
+    regex: `
 🔍 Regex Patterns
 ----------------------------
 Email: /^[\\w.-]+@[\\w.-]+\\.\\w{2,}$/
@@ -57,7 +59,7 @@ Digits only: /^\\d+$/
 Test match: /pattern/.test("text")
 `,
 
-  terminal: `
+    terminal: `
 💻 Terminal Commands
 ----------------------------
 cd folder/         - change directory
@@ -73,7 +75,7 @@ Up/Down Arrows     - scroll through history
 Tab                - auto-complete
 `,
 
-  vscode: `
+    vscode: `
 🧩 VS Code Shortcuts
 ----------------------------
 Ctrl + D            - select next same word
@@ -87,7 +89,7 @@ Alt + Click         - multi-cursor
 Ctrl + \`           - open terminal
 `,
 
-  markdown: `
+    markdown: `
 📝 Markdown Syntax
 ----------------------------
 # H1, ## H2, ### H3
@@ -99,7 +101,7 @@ console.log("Code Block");
 \`\`\`
 `,
 
-  devtools: `
+    devtools: `
 🛠 DevTools Shortcuts
 ----------------------------
 Ctrl + Shift + I       - Open DevTools
@@ -110,7 +112,7 @@ Esc                    - Show Console Drawer
 Right-click → Inspect  - Quick element view
 `,
 
-  general: `
+    general: `
 📚 General Coding Shortcuts
 ----------------------------
 Ctrl + /               - Comment line (HTML/CSS/JS)
@@ -119,14 +121,17 @@ Ctrl + Shift + L       - Select all matching
 F12 or Ctrl + Click    - Go to definition
 Ctrl + Space           - Trigger suggestions
 `
-};
+  };
 
-const selector = document.getElementById("cheatSelector");
-const output = document.getElementById("cheatOutput");
+  const selector = document.getElementById("cheatSelector");
+  const output = document.getElementById("cheatOutput");
 
-output.textContent = cheatData.html;
+  output.textContent = cheatData.html;
 
-selector.addEventListener("change", () => {
-  const selected = selector.value;
-  output.textContent = cheatData[selected];
+  selector.addEventListener("change", () => {
+    const selected = selector.value;
+    output.textContent = cheatData[selected];
+  });
+
 });
+

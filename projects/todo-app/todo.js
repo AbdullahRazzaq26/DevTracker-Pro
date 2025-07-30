@@ -1,54 +1,57 @@
-let input = document.querySelector("#todoInput");
-let submit = document.querySelector("#addTodo");
-let ul = document.querySelector('#todoList')
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-let editIndex = -1;
-let clearAllBtn = document.querySelector("#clearAll");
+document.addEventListener("DOMContentLoaded", () => {
+
+
+    let input = document.querySelector("#todoInput");
+    let submit = document.querySelector("#addTodo");
+    let ul = document.querySelector('#todoList')
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    let editIndex = -1;
+    let clearAllBtn = document.querySelector("#clearAll");
 
 
 
-submit.addEventListener("click", submitTask);
+    submit.addEventListener("click", submitTask);
 
 
-input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-        submitTask();
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            submitTask();
+        }
+    });
+
+
+
+    function submitTask() {
+        const taskText = input.value.trim();
+        if (taskText === "") return;
+
+        if (editIndex === -1) {
+            tasks.push({ text: taskText, completed: false });
+        } else {
+            tasks[editIndex].text = taskText;
+            editIndex = -1;
+        }
+
+        input.value = "";
+        saveToLocal();
+        render();
     }
-});
 
 
 
-function submitTask() {
-    const taskText = input.value.trim();
-    if (taskText === "") return;
-
-    if (editIndex === -1) {
-        tasks.push({ text: taskText, completed: false });
-    } else {
-        tasks[editIndex].text = taskText;
-        editIndex = -1;
+    function saveToLocal() {
+        localStorage.setItem("tasks", JSON.stringify(tasks));
     }
 
-    input.value = "";
-    saveToLocal();
-    render();
-}
 
 
+    function render() {
+        ul.innerHTML = "";
 
-function saveToLocal() {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-}
-
-
-
-function render() {
-    ul.innerHTML = "";
-
-    tasks.forEach((task, i) => {
-        let li = document.createElement("li");
-        li.classList.toggle("completed", task.completed);
-        li.innerHTML = `
+        tasks.forEach((task, i) => {
+            let li = document.createElement("li");
+            li.classList.toggle("completed", task.completed);
+            li.innerHTML = `
       <span>${task.text}</span>
       <div class="btn-group">
         <button class="editBtn">Edit Task</button>
@@ -66,39 +69,40 @@ function render() {
         </div>
       </div>
     `;
-        ul.appendChild(li);
+            ul.appendChild(li);
+        });
+    }
+
+
+
+    ul.addEventListener("click", (e) => {
+        let li = e.target.closest('li');
+        let taskText = li.querySelector("span").innerText.trim();
+        let index = tasks.findIndex(task => task.text === taskText);
+
+        if (e.target.classList.contains("dltBtn")) {
+            tasks.splice(index, 1);
+            saveToLocal();
+            render();
+        }
+
+        if (e.target.classList.contains("editBtn")) {
+            editIndex = index;
+            input.value = tasks[editIndex].text;
+        }
+
+        if (e.target.classList.contains("inp-cbx")) {
+            tasks[index].completed = e.target.checked;
+            saveToLocal();
+            render();
+        }
     });
-}
 
-
-
-ul.addEventListener("click", (e) => {
-    let li = e.target.closest('li');
-    let taskText = li.querySelector("span").innerText.trim();
-    let index = tasks.findIndex(task => task.text === taskText);
-
-    if (e.target.classList.contains("dltBtn")) {
-        tasks.splice(index, 1);
+    clearAllBtn.addEventListener("click", () => {
+        tasks = [];
         saveToLocal();
         render();
-    }
+    });
 
-    if (e.target.classList.contains("editBtn")) {
-        editIndex = index;
-        input.value = tasks[editIndex].text;
-    }
-
-    if (e.target.classList.contains("inp-cbx")) {
-        tasks[index].completed = e.target.checked;
-        saveToLocal();
-        render();
-    }
-});
-
-clearAllBtn.addEventListener("click", () => {
-    tasks = [];
-    saveToLocal();
     render();
 });
-
-render();

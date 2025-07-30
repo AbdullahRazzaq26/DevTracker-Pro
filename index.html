@@ -14,11 +14,13 @@
     <link rel="stylesheet" href="projects/notes-snippets/notes.css" />
     <link rel="stylesheet" href="projects/github-profile/github.css" />
     <link rel="stylesheet" href="projects/pomodoro-timer/pomodoro.css" />
-    <link rel="stylesheet" href="projects/theme-switcher/theme.css" />
     <link rel="stylesheet" href="projects/daily-quote/quote.css" />
     <link rel="stylesheet" href="projects/calendar-countdown/calendar.css" />
     <link rel="stylesheet" href="projects/devtools-shortcuts/devtools.css" />
     <link rel="stylesheet" href="projects/cheat-sheet/cheat.css" />
+    <link rel="stylesheet" href="projects/api-tester/api-tester.css" />
+    <link rel="stylesheet" href="projects/json-formatter/json.formatter.css" />
+
 </head>
 
 <body>
@@ -81,6 +83,7 @@
                     </div>
                 </div>
             </section>
+
         </div>
 
         <div class="row row-center">
@@ -109,9 +112,6 @@
                     <button id="clearAll" class="clear-btn">🗑️ Clear All</button>
                 </div>
             </section>
-        </div>
-
-        <div class="row row-bottom">
             <section class="tool notes-widget">
                 <div id="notesSection">
                     <h2>📝 Quick Notes</h2>
@@ -122,6 +122,49 @@
                     <div id="notesContainer"></div>
                 </div>
             </section>
+        </div>
+
+        <div class="row row-center">
+            <section class="tool api-tester-widget">
+                <div class="api-tester">
+                    <h2>📡 API Tester (Mini Postman)</h2>
+                    <div class="api-controls">
+                        <input type="text" id="api-url" placeholder="Enter API URL">
+                        <select id="method">
+                            <option>GET</option>
+                            <option>POST</option>
+                            <option>PUT</option>
+                            <option>DELETE</option>
+                        </select>
+                        <textarea id="headers" placeholder='Headers (JSON format)'></textarea>
+                        <textarea id="body" placeholder='Request Body (JSON for POST/PUT)'></textarea>
+                        <button id="sendRequest">Send Request</button>
+                    </div>
+                    <div class="response-section">
+                        <h3>📥 Response</h3>
+                        <pre id="responseOutput">{...}</pre>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="tool json-formatter-widget">
+                <div class="json-formatter glassy-section">
+                    <h2>📦 JSON Formatter & Validator</h2>
+                    <textarea id="jsonInput" placeholder="Paste your JSON here..."></textarea>
+                    <div class="json-buttons">
+                        <button onclick="formatJSON()">Format</button>
+                        <button onclick="minifyJSON()">Minify</button>
+                        <button onclick="copyJSON()">Copy</button>
+                        <button onclick="clearJSON()">Clear</button>
+                    </div>
+                    <pre id="jsonOutput" class="json-output"></pre>
+                </div>
+            </section>
+        </div>
+
+        <div class="row row-bottom">
+
             <section class="tool devTools-widget">
                 <div id="devToolsShortcuts">
                     <h2>🛠️ DevTools Shortcuts</h2>
@@ -166,7 +209,7 @@
             <h3>Add Note for <span id="selectedDate"></span></h3>
             <textarea id="noteText" rows="5" placeholder="Write your note here..."></textarea>
             <div class="popup-buttons">
-                <button id="saveNote">Save</button>
+                <button id="saveCalendarNote">Save</button>
                 <button id="closeNote">Close</button>
             </div>
         </div>
@@ -174,16 +217,15 @@
 
 
 
-
-
     <script src="projects/github-profile/github.js"></script>
-    <script src="projects/calendar-countdown/calendar.js"></script>
-    <script src="projects/daily-quote/quote.js"></script>
     <script src="projects/todo-app/todo.js"></script>
+    <script src="projects/calendar-countdown/calendar.js"></script>
+    <script src="projects/api-tester/api-tester.js"></script>
+    <script src="projects/json-formatter/json-formatter.js"></script>
+    <script src="projects/daily-quote/quote.js"></script>
     <script src="projects/weather-widget/weather.js"></script>
     <script src="projects/notes-snippets/notes.js"></script>
     <script src="projects/pomodoro-timer/pomodoro.js"></script>
-    <script src="projects/theme-switcher/theme.js"></script>
     <script src="projects/devtools-shortcuts/devtools.js"></script>
     <script src="projects/cheat-sheet/cheat.js"></script>
 </body>

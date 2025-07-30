@@ -1,0 +1,81 @@
+.json-formatter {
+  padding: 24px;
+  border-radius: 16px;
+  color: #EEEEEE;
+  transition: all 0.3s ease;
+}
+
+.json-formatter h2 {
+    font-family: 'Lemon Milk', sans-serif;
+    font-size: 1.5rem;
+    color: #1dd1a1;
+    text-align: center;
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    box-shadow: none;
+    position: relative;
+    top: -19px;
+}
+
+#jsonInput {
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 140px;
+  background: rgba(34, 40, 49, 0.85);
+  color: #EEEEEE;
+  border: none;
+  border-radius: 10px;
+  padding: 14px;
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+  box-shadow: inset 0 0 0 2px rgba(125, 95, 255, 0.3);
+  transition: 0.2s ease;
+}
+
+#jsonInput:focus {
+  outline: none;
+  background-color: #2b3039;
+  box-shadow: 0 0 6px rgba(118, 171, 174, 0.4);
+}
+
+.json-buttons {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+}
+
+.json-buttons button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #506EEC, #7d5fff);
+  color: white;
+  font-family: 'Lemon Milk', sans-serif;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 12px rgba(80, 110, 236, 0.4);
+  width: 100%;
+}
+
+.json-buttons button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(125, 95, 255, 0.3);
+}
+
+.json-output {
+  margin-top: 20px;
+  background: rgba(34, 40, 49, 0.9);
+  padding: 16px;
+  border-radius: 10px;
+  font-family: 'Fira Code', monospace;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #76ABAE;
+  white-space: pre-wrap;
+  box-shadow: inset 0 0 8px rgba(118, 171, 174, 0.15);
+  border: 1px solid rgba(118, 171, 174, 0.1);
+  max-height: 300px;
+  overflow-y: auto;
+}
